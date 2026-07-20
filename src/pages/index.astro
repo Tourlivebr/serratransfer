@@ -7,9 +7,27 @@ import CarrosselPasseiosReceptivo from '../components/CarrosselPasseiosReceptivo
 import Depoimentos from '../components/Depoimentos.astro';
 import FormularioContato from '../components/FormularioContato.astro';
 import Footer from '../components/Footer.astro';
+
+const seoDescription = "Serra Transfer - O seu guia completo de turismo em Gramado e Canela! Translados, passeios, ingressos para atrações e muito mais na Serra Gaúcha. Reserve já!";
+const seoKeywords = [
+  "turismo Gramado",
+  "turismo Canela",
+  "translado Gramado",
+  "translado Canela",
+  "ingressos Gramado",
+  "passeios Serra Gaúcha",
+  "Serra Transfer",
+  "Gramado RS",
+  "Canela RS"
+];
 ---
 
-<BaseLayout title="Serra Transfer- Turismo em Gramado e Canela">
+<BaseLayout 
+  title="Serra Transfer | Turismo em Gramado e Canela - Serra Gaúcha" 
+  description={seoDescription}
+  keywords={seoKeywords}
+  image="/images/serratransfer.png"
+>
   <Header />
   
   <!-- Seção Hero -->
