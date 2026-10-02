@@ -8,10 +8,8 @@ const passeio = {
   titulo: "Passaporte Grupo Dreams",
   subtitulo: "O melhor negócio da Serra Gaúcha!",
   categoria: "INGRESSOS E ATRAÇÕES",
-  preco: 250.00,
   avaliacao: 4.01,
   totalAvaliacoes: 10,
-  parcelas: "10x sem juros",
   descricao: "O Passaporte Dreams garante experiências incríveis e emocionantes para todas as idades, nas duas cidades mais visitadas da Serra Gaúcha — Gramado e Canela. Com ele, você garante acesso a 7 atrações imperdíveis com um super desconto e ainda pode parcelar em até 10x no cartão. Passaporte exclusivo com passeio na carona de um Porsche Cayman (mediante agendamento diretamente na bilheteria do Super Carros).",
   inclusos: [
     "Acesso a 7 atrações do grupo",
@@ -23,14 +21,14 @@ const passeio = {
   duracao: "1 hora por atração",
   horarios: ["Diariamente - horários variados"],
   galeria: [
-    "/images/dreams/thumb_loja_passaporte.png",
-    "/images/dreams/dreamland-museu-de-cera-gramado-rs-1.jpg",
-    "/images/dreams/hollywood.png",
-    "/images/dreams/super_Carros.png",
-    "/images/dreams/motor_show.png",
-    "/images/dreams/jardim_amor.png",
-    "/images/dreams/SELFIE.png",
-    "/images/dreams/vale_dinossauros.png"
+    "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Interactive%20selfie%20museum%20with%20dreamy%20neon%20light%20themed%20rooms%2C%20wax%20museum%20exhibition%2C%20Instagrammable%20fantasy%20spaces%2C%20Gramado%20tourism&image_size=landscape_16_9",
+    "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Dreamland%20wax%20museum%20celebrity%20figures%20realistic%20exhibition%20hall%20interior%20Gramado%20Brazil&image_size=landscape_16_9",
+    "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Illuminated%20neon%20art%20installation%20colorful%20room%20selfie%20museum%20immersive%20experience%20tourist%20attraction&image_size=landscape_16_9",
+    "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Romantic%20heart%20themed%20photo%20room%20with%20flowers%20and%20lights%20for%20couples%2C%20Gramado%20attraction%20love%20garden&image_size=landscape_16_9",
+    "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Classic%20vintage%20luxury%20cars%20exhibition%20hall%20museum%20Hollywood%20style%20Cadillac%20collection&image_size=landscape_16_9",
+    "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Super%20sports%20cars%20showroom%20exhibition%20Porsche%20Ferrari%20luxury%20automotive%20museum%20interior&image_size=landscape_16_9",
+    "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Vintage%20motorcycles%20collection%20exhibition%20classic%20bikes%20Las%20Vegas%20bar%20style%20motorshow%20museum&image_size=landscape_16_9",
+    "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Dinosaur%20animatronic%20valley%20jungle%20theme%20park%20realistic%20Trex%20moving%20statue%20family%20attraction%20Brazil&image_size=landscape_16_9"
   ],
   tags: ["7 atrações imperdíveis", "Validade de 1 ano", "Passeio de Porsche Cayman incluso"]
 };
@@ -94,14 +92,14 @@ const naoInclusos = [
   "Produtos do bar"
 ];
 
-const whatsappMessage = `Olá! Gostaria de mais informações sobre o ${passeio.titulo} - ${passeio.subtitulo}. Valor: R$ ${passeio.preco.toFixed(2).replace('.', ',')} em ${passeio.parcelas}.`;
-const whatsappUrl = `https://wa.me/5554993220552?text=${encodeURIComponent(whatsappMessage)}`;
+const whatsappMessage = `Olá! Gostaria de mais informações sobre o ${passeio.titulo} - ${passeio.subtitulo}.`;
+const whatsappUrl = `https://wa.me/5554996366980?text=${encodeURIComponent(whatsappMessage)}`;
 ---
 
 <BaseLayout 
-  title={`${passeio.titulo} - ${passeio.subtitulo} | Serra Transfer - Gramado RS`}
-  description="Passaporte Grupo Dreams! Acesso a 7 atrações em Gramado e Canela, incluindo passeio de Porsche Cayman, com a Serra Transfer!"
-  keywords={['Grupo Dreams Gramado', 'passaporte Dreams', 'atrações Gramado', 'passeio Porsche Cayman', 'Serra Transfer']}
+  title={`${passeio.titulo} - ${passeio.subtitulo} | Gramado Tchê Turismo - Gramado RS`}
+  description="Passaporte Grupo Dreams! Acesso a 7 atrações em Gramado e Canela, incluindo passeio de Porsche Cayman, com a Gramado Tchê Turismo!"
+  keywords={['Grupo Dreams Gramado', 'passaporte Dreams', 'atrações Gramado', 'passeio Porsche Cayman', 'Gramado Tchê Turismo']}
   image={passeio.galeria[0]}
 >
   <Header />
@@ -124,23 +122,7 @@ const whatsappUrl = `https://wa.me/5554993220552?text=${encodeURIComponent(whats
     <div class="container mx-auto px-4 py-12">
       <div class="grid lg:grid-cols-3 gap-12">
         <!-- Conteúdo Principal -->
-        <div class="lg:col-span-2">
-          <!-- Avaliações e Preço -->
-          <div class="flex flex-wrap items-center justify-between mb-8 p-6 bg-gray-50 rounded-xl">
-            <div class="flex items-center space-x-4 mb-4 lg:mb-0">
-              <div class="flex flex-col">
-                <p class="text-sm text-gray-600 dark:text-gray-400 mb-1"><strong>Nossos Clientes Recomendam:</strong></p>
-                <div class="flex items-center">
-                  <StarRating rating={passeio.avaliacao} />
-                  <span class="text-gray-600 ml-2">({passeio.totalAvaliacoes} avaliações)</span>
-                </div>
-              </div>
-            </div>
-            <div class="text-right">
-              <div class="text-gray-600 text-sm mb-1">A partir de:</div>
-              <div class="text-3xl font-bold text-primary-600">R$ {passeio.preco.toFixed(2).replace('.', ',')}</div>
-            </div>
-          </div>
+        <div class="lg:col-span-3">
 
           <!-- Descrição -->
           <div class="mb-8">
@@ -268,69 +250,6 @@ const whatsappUrl = `https://wa.me/5554993220552?text=${encodeURIComponent(whats
               <p class="text-sm text-yellow-800">
                 <strong>Importante:</strong> As imagens de divulgação são meramente ilustrativas. Alguns personagens de cera podem não estar em exibição no momento, pois podem estar em manutenção ou participando de ações promocionais em outros locais.
               </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sidebar de Reserva -->
-        <div class="lg:col-span-1">
-          <div class="sticky top-32">
-            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-lg">
-              <div class="text-center mb-6">
-                <div class="text-3xl font-bold text-primary-600 mb-2">
-                  R$ {passeio.preco.toFixed(2).replace('.', ',')}
-                </div>
-                <div class="text-gray-600">ou em {passeio.parcelas}</div>
-              </div>
-
-              <!-- Informações do Passeio -->
-              <div class="space-y-4 mb-6">
-                <div class="flex justify-between">
-                  <span class="text-gray-600">Duração:</span>
-                  <span class="font-medium">{passeio.duracao}</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-gray-600">Horários:</span>
-                  <span class="font-medium">{passeio.horarios.join(', ')}</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-gray-600">Categoria:</span>
-                  <span class="font-medium">{passeio.categoria}</span>
-                </div>
-                <div class="flex justify-between">
-                  <span class="text-gray-600">Validade:</span>
-                  <span class="font-medium">1 ano</span>
-                </div>
-              </div>
-
-              <!-- Botão de Compra pelo Site Oficial -->
-              <a 
-                href="https://grupodreams.com.br/loja/gramado/?ingToken=passaportedreams&bookingagency=26206"
-                target="_blank"
-                class="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-6 rounded-lg transition-colors flex items-center justify-center space-x-2 mb-4"
-              >
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-                <span class="text-center">Compre pelo Site Oficial</span>
-              </a>
-
-              <!-- Botão de Compra -->
-              <a 
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-lg transition-colors flex items-center justify-center space-x-2"
-              >
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                </svg>
-                <span>Reservar via WhatsApp</span>
-              </a>
-
-              <div class="text-center mt-4">
-                <p class="text-sm text-gray-600">Resposta rápida garantida!</p>
-              </div>
             </div>
           </div>
         </div>

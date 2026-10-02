@@ -1,28 +1,28 @@
 ---
-// Remover todo o array todosPasseios daqui - agora será definido no JavaScript
+const { mobileHero = false } = Astro.props;
 ---
 
-<header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/25 dark:bg-gray-900/50 backdrop-blur-md border-b border-gray-200/20 dark:border-gray-700/20">
-  <div class="container mx-auto px-4">
-    <nav class="header-nav flex items-center justify-between h-20 lg:h-24" aria-label="Navegação principal">
+<header data-mobile-hero={mobileHero ? "true" : undefined} id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/50 dark:bg-gray-900/50 backdrop-blur-md border-b border-gray-200/20 dark:border-gray-700/20">
+  <div class="container mx-auto px-2 lg:px-4">
+    <nav class="header-nav flex items-center justify-between h-20 lg:h-28" aria-label="Navegação principal">
       <!-- Logo -->
-      <a href="/" class="flex items-center space-x-2 group mobile-landscape-hide" aria-label="Página inicial">
+      <a href="/" class="flex items-center justify-center h-full ml-2 lg:ml-0 group mobile-landscape-hide header-logo" aria-label="Página inicial">
         <img 
-          src="/images/serratransfer.png" 
-          alt="Serra Transfer" 
-          class="h-14 w-auto lg:h-18 transition-transform group-hover:scale-105 object-contain"
-          width="120"
-          height="40"
+          src="/images/logo_p_gramadotche.png" 
+          alt="Gramado Tchê Turismo" 
+          class="h-full w-auto max-h-[85%] transition-transform group-hover:scale-105 object-contain"
+          width="160"
+          height="112"
         />
       </a>
       
       <!-- Search Bar - Desktop -->
-      <div class="hidden lg:flex flex-1 max-w-md mx-8 relative mobile-landscape-hide">
+      <div class="hidden lg:flex flex-1 max-w-md mx-8 relative items-center mobile-landscape-hide">
         <div class="relative w-full">
           <input 
             type="text" 
             id="search-input"
-            placeholder="Buscar passeios..."
+            placeholder="Buscar passeios ou Ingressos..."
             class="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
             autocomplete="off"
           />
@@ -38,6 +38,26 @@
           </div>
         </div>
       </div>
+
+      <!-- Inline Search - Mobile scrolled (CENTRALIZADO) - Apenas aparece no mobile scrolled -->
+      <div class="hidden md:hidden header-scrolled-search flex-1 max-w-[80%] mx-auto justify-center relative">
+        <div class="relative w-full">
+          <input 
+            type="text" 
+            id="mobile-scrolled-search-input"
+            placeholder="Buscar passeios ou Ingressos..."
+            class="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white shadow-sm text-sm"
+            autocomplete="off"
+          />
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </div>
+          <div id="mobile-scrolled-search-results" class="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg max-h-60 overflow-y-auto hidden z-50">
+          </div>
+        </div>
+      </div>
       
       <!-- Desktop Menu -->
       <ul class="hidden md:flex items-center space-x-8 mobile-landscape-hide" role="menubar">
@@ -47,7 +67,7 @@
             class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200 scroll-smooth"
             role="menuitem"
           >
-            Quem sou
+            Início
           </a>
         </li>
         <li role="none" class="relative group">
@@ -101,7 +121,7 @@
           <input 
             type="text" 
             id="mobile-landscape-search-input"
-            placeholder="Buscar passeios..."
+            placeholder="Buscar passeios ou Ingressos..."
             class="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
             autocomplete="off"
           />
@@ -119,7 +139,7 @@
       <!-- Mobile Search Button -->
       <button 
         id="mobile-search-button"
-        class="md:hidden lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors mr-2 mobile-landscape-hide"
+        class="md:hidden lg:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors ml-auto mobile-landscape-hide header-mobile-search-btn"
         aria-label="Abrir busca"
       >
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,11 +163,11 @@
     
     <!-- Mobile Search Bar -->
     <div id="mobile-search" class="lg:hidden hidden px-4 pb-4">
-      <div class="relative">
+      <div class="relative max-w-md mx-auto">
         <input 
           type="text" 
           id="mobile-search-input"
-          placeholder="Buscar passeios..."
+          placeholder="Buscar passeios ou Ingressos..."
           class="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
           autocomplete="off"
         />
@@ -164,116 +184,146 @@
       </div>
     </div>
     
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-gray-200">
-      <div class="px-4 py-4 space-y-4">
-        <a href="#quem-sou" class="block text-gray-700 hover:text-blue-600 transition-colors font-medium mobile-menu-link">Quem sou</a>
+    <!-- Mobile Menu (estrutura e estilo IDENTICOS ao desktop) -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700/60 shadow-xl z-[60] absolute w-full left-0 right-0 top-full">
+      <div class="container mx-auto px-6 py-6 space-y-5 text-left">
+        <a href="#quem-sou" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 font-semibold text-lg mobile-menu-link py-2 border-b border-gray-100 dark:border-gray-700/50 last:border-b-0">Início</a>
         
-        <!-- Mobile Services Dropdown -->
-        <div class="space-y-2">
-          <button id="mobile-services-toggle" class="flex items-center justify-between w-full text-gray-700 hover:text-blue-600 transition-colors font-medium">
+        <!-- Mobile Services Dropdown (IGUAL desktop dropdown: 2 niveis, titulo + subtitulo, hover primary) -->
+        <div class="pb-1 border-b border-gray-100 dark:border-gray-700/50 last:border-b-0">
+          <button id="mobile-services-toggle" class="flex items-center justify-between w-full text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 font-semibold text-lg py-2">
             Serviços
-            <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 transition-transform text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
-          <div id="mobile-services-menu" class="hidden pl-4 space-y-2">
-            <a href="#ingressos" class="block text-gray-600 hover:text-blue-600 transition-colors mobile-menu-link">Ingressos e Atrações</a>
-            <a href="#passeios" class="block text-gray-600 hover:text-blue-600 transition-colors mobile-menu-link">Translados e Passeios</a>
+          <div id="mobile-services-menu" class="hidden pl-2 sm:pl-4 mt-2 mb-3 space-y-3 rounded-xl bg-gray-50 dark:bg-gray-800/60 py-3 px-3 border border-gray-200/70 dark:border-gray-700/50 shadow-inner">
+            <a href="/ingressos" class="block px-3 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-700/60 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200 mobile-menu-link border border-transparent hover:border-primary-100 dark:hover:border-primary-900/40">
+              <div class="font-semibold text-base">Ingressos e Atrações</div>
+              <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Gramado e Canela</div>
+            </a>
+            <a href="/passeios" class="block px-3 py-3 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-700/60 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-200 mobile-menu-link border border-transparent hover:border-primary-100 dark:hover:border-primary-900/40">
+              <div class="font-semibold text-base">Translados e Passeios</div>
+              <div class="text-sm text-gray-500 dark:text-gray-400 mt-1">Tours personalizados</div>
+            </a>
           </div>
         </div>
         
-        <a href="#depoimentos" class="block text-gray-700 hover:text-blue-600 transition-colors font-medium mobile-menu-link">Depoimentos</a>
-        <a href="#contato" class="block text-gray-700 hover:text-blue-600 transition-colors font-medium mobile-menu-link">Contato</a>
+        <a href="#depoimentos" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 font-semibold text-lg mobile-menu-link py-2 border-b border-gray-100 dark:border-gray-700/50">Depoimentos</a>
+        <a href="#contato" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 font-semibold text-lg mobile-menu-link py-2 border-b border-gray-100 dark:border-gray-700/50">Contato</a>
       </div>
     </div>
   </div>
 </header>
 
 <script>
-  // Dados dos passeios para busca (agora definido diretamente no JavaScript)
+  // Dados COMPLETOS dos passeios e ingressos para busca (11 itens)
   const todosPasseios = [
-    // Ingressos e Atrações
+    // Ingressos e Atrações (6)
     {
       id: 1,
-      titulo: "Cristais de Gramado",
-      subtitulo: "Ingresso",
+      titulo: "ParksNet Passaporte",
+      subtitulo: "Parques e Atrações da Serra Gaúcha",
       categoria: "INGRESSOS E ATRAÇÕES",
       tipo: "ingressos",
-      slug: "cristais-de-gramado"
+      slug: "parksnet"
     },
     {
       id: 2,
-      titulo: "Grupo Dreams",
-      subtitulo: "Passaporte para 7 Atrações",
+      titulo: "Kongo Pizzaria",
+      subtitulo: "Rodízio + Show na Selva Temática",
+      categoria: "INGRESSOS E ATRAÇÕES",
+      tipo: "ingressos",
+      slug: "kongo-pizzaria"
+    },
+    {
+      id: 3,
+      titulo: "Parque da Mônica",
+      subtitulo: "A magia da Turma da Mônica na Serra Gaúcha",
+      categoria: "INGRESSOS E ATRAÇÕES",
+      tipo: "ingressos",
+      slug: "parque-da-monica"
+    },
+    {
+      id: 4,
+      titulo: "Era do Fogo Fondue Temático",
+      subtitulo: "Fondue na Caverna Pré-Histórica",
+      categoria: "INGRESSOS E ATRAÇÕES",
+      tipo: "ingressos",
+      slug: "era-do-fogo"
+    },
+    {
+      id: 5,
+      titulo: "Ferrovia Secreta Hector",
+      subtitulo: "Trem Mágico com Comida Americana",
+      categoria: "INGRESSOS E ATRAÇÕES",
+      tipo: "ingressos",
+      slug: "ferrovia-secreta"
+    },
+    {
+      id: 6,
+      titulo: "Hector Pizzaria",
+      subtitulo: "Rodízio de Pizza na Escola Ônyra",
+      categoria: "INGRESSOS E ATRAÇÕES",
+      tipo: "ingressos",
+      slug: "hector-pizzaria"
+    },
+    {
+      id: 7,
+      titulo: "Gatzz Fondue & Show",
+      subtitulo: "Dinner Show de Broadway",
+      categoria: "INGRESSOS E ATRAÇÕES",
+      tipo: "ingressos",
+      slug: "gatzz"
+    },
+    {
+      id: 8,
+      titulo: "Passaporte Grupo Dreams",
+      subtitulo: "7 Atrações em 1 Passaporte",
       categoria: "INGRESSOS E ATRAÇÕES",
       tipo: "ingressos",
       slug: "grupo-dreams"
     },
-    {
-      id: 4,
-      titulo: "Parque Terra Mágica Florybal",
-      subtitulo: "Parque Temático",
-      categoria: "INGRESSOS E ATRAÇÕES",
-      tipo: "ingressos",
-      slug: "terra-magica-florybal"
-    },
+    // Passeios e Receptivo (5)
     {
       id: 7,
-      titulo: "Mini Mundo",
-      subtitulo: "Ingresso",
-      categoria: "INGRESSOS E ATRAÇÕES",
-      tipo: "ingressos",
-      slug: "mini-mundo"
-    },
-    {
-      id: 8,
-      titulo: "Alpen Park",
-      subtitulo: "Ingresso",
-      categoria: "INGRESSOS E ATRAÇÕES",
-      tipo: "ingressos",
-      slug: "alpen-park"
-    },
-    {
-      id: 12,
-      titulo: "Parque Space Adventure I",
-      subtitulo: "Parque Temático",
-      categoria: "INGRESSOS E ATRAÇÕES",
-      tipo: "ingressos",
-      slug: "parque-space-adventure"
-    },
-    {
-      id: 16,
-      titulo: "Parque Vila da Mônica",
-      subtitulo: "Parque Temático",
-      categoria: "INGRESSOS E ATRAÇÕES",
-      tipo: "ingressos",
-      slug: "parque-vila-da-monica"
-    },
-    // Translados e Passeios - apenas os 3 da imagem
-    {
-      id: 5,
-      titulo: "Transfer Ida e Volta (POA ou Caxias/ Gramado ou Canela)",
-      subtitulo: "Transporte Privativo",
+      titulo: "Transfer Privativo POA/Caxias",
+      subtitulo: "Gramado e Canela - Ida e Volta",
       categoria: "RECEPTIVO",
       tipo: "passeios",
       slug: "transfer-privativo"
     },
     {
-      id: 6,
-      titulo: "Tour Uva e Vinho + Passeio de Maria Fumaça + Epopeia + Almoço (Coletivo)",
-      subtitulo: "Com Trem Maria Fumaça e Épopeia",
+      id: 8,
+      titulo: "Tour Maria Fumaça + Vinhos + Épopeia + Almoço",
+      subtitulo: "Roteiro Vinícola Coletivo Completo",
       categoria: "PASSEIOS",
       tipo: "passeios",
       slug: "tour-trem-vinho-maria-fumaca"
     },
     {
-      id: 14,
-      titulo: "Ensaio Fotográfico Gramado e Canela",
-      subtitulo: "Passeio Privativo",
-      categoria: "PASSEIOS PRIVATIVOS",
+      id: 9,
+      titulo: "Translado Olivas de Gramado",
+      subtitulo: "Roteiro Vinícola Privativo",
+      categoria: "PASSEIOS",
       tipo: "passeios",
-      slug: "ensaio-fotografico-gramado-canela"
+      slug: "translados"
+    },
+    {
+      id: 10,
+      titulo: "Skyglass Canela",
+      subtitulo: "Bondinho Aéreo e Mirante de Vidro",
+      categoria: "PASSEIOS",
+      tipo: "passeios",
+      slug: "translado-skyglass"
+    },
+    {
+      id: 11,
+      titulo: "Translado Jolimont Winery",
+      subtitulo: "Vinícola Premium em Bento Gonçalves",
+      categoria: "PASSEIOS",
+      tipo: "passeios",
+      slug: "translados"
     }
   ];
 
@@ -289,9 +339,11 @@
   const searchInput = document.getElementById('search-input');
   const mobileSearchInput = document.getElementById('mobile-search-input');
   const mobileLandscapeSearchInput = document.getElementById('mobile-landscape-search-input');
+  const mobileScrolledSearchInput = document.getElementById('mobile-scrolled-search-input');
   const searchResults = document.getElementById('search-results');
   const mobileSearchResults = document.getElementById('mobile-search-results');
   const mobileLandscapeSearchResults = document.getElementById('mobile-landscape-search-results');
+  const mobileScrolledSearchResults = document.getElementById('mobile-scrolled-search-results');
   
   let isMenuOpen = false;
   let isServicesOpen = false;
@@ -299,7 +351,7 @@
   
   // Search functionality
   function performSearch(query, resultsContainer) {
-    console.log('Performing search for:', query); // Debug
+
     
     if (!query.trim()) {
       resultsContainer.classList.add('hidden');
@@ -311,14 +363,13 @@
       (passeio.subtitulo && passeio.subtitulo.toLowerCase().includes(query.toLowerCase()))
     );
     
-    console.log('Filtered results:', filteredPasseios); // Debug
+
     
     if (filteredPasseios.length === 0) {
-      resultsContainer.innerHTML = `
-        <div class="p-4 text-gray-500 text-center">
-          Nenhum passeio encontrado para "${query}"
-        </div>
-      `;
+      const message = document.createElement('div');
+      message.className = 'p-4 text-gray-500 text-center';
+      message.textContent = `Nenhum serviço encontrado para "${query}"`;
+      resultsContainer.replaceChildren(message);
     } else {
       resultsContainer.innerHTML = filteredPasseios.map(passeio => {
         const href = `/${passeio.slug}`;
@@ -335,6 +386,22 @@
     resultsContainer.classList.remove('hidden');
   }
   
+  const heroSearchInput = document.getElementById('hero-search-input');
+  const heroSearchResults = document.getElementById('hero-search-results');
+  heroSearchInput?.addEventListener('input', (e) => {
+    performSearch(e.target.value, heroSearchResults);
+  });
+  heroSearchInput?.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') heroSearchResults?.classList.add('hidden');
+    if (e.key === 'Enter') {
+      const firstResult = heroSearchResults?.querySelector('a');
+      if (firstResult) window.location.href = firstResult.href;
+    }
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('#hero-service-search')) heroSearchResults?.classList.add('hidden');
+  });
+
   // Desktop search
   searchInput?.addEventListener('input', (e) => {
     performSearch(e.target.value, searchResults);
@@ -348,6 +415,10 @@
   mobileLandscapeSearchInput?.addEventListener('input', (e) => {
     performSearch(e.target.value, mobileLandscapeSearchResults);
   });
+
+  mobileScrolledSearchInput?.addEventListener('input', (e) => {
+    performSearch(e.target.value, mobileScrolledSearchResults);
+  });
   
   // Hide search results when clicking outside
   document.addEventListener('click', (e) => {
@@ -360,6 +431,9 @@
     if (!e.target.closest('#mobile-landscape-search-input') && !e.target.closest('#mobile-landscape-search-results')) {
       mobileLandscapeSearchResults?.classList.add('hidden');
     }
+    if (!e.target.closest('#mobile-scrolled-search-input') && !e.target.closest('#mobile-scrolled-search-results')) {
+      mobileScrolledSearchResults?.classList.add('hidden');
+    }
   });
   
   // Mobile search toggle
@@ -367,11 +441,11 @@
     isMobileSearchOpen = !isMobileSearchOpen;
     
     if (isMobileSearchOpen) {
-      mobileSearch?.classList.remove('hidden');
-      mobileSearchInput?.focus();
+      header?.classList.add('mobile-search-active');
+      mobileScrolledSearchInput?.focus();
     } else {
-      mobileSearch?.classList.add('hidden');
-      mobileSearchResults?.classList.add('hidden');
+      header?.classList.remove('mobile-search-active');
+      mobileScrolledSearchResults?.classList.add('hidden');
     }
   });
 
@@ -380,8 +454,8 @@
     if (!mobileLandscapeMq.matches) return;
     if (isMobileSearchOpen) {
       isMobileSearchOpen = false;
-      mobileSearch?.classList.add('hidden');
-      mobileSearchResults?.classList.add('hidden');
+      header?.classList.remove('mobile-search-active');
+      mobileScrolledSearchResults?.classList.add('hidden');
     }
   };
   syncLandscapeSearch();
@@ -463,6 +537,7 @@
         searchResults?.classList.add('hidden');
         mobileSearchResults?.classList.add('hidden');
         mobileLandscapeSearchResults?.classList.add('hidden');
+        mobileScrolledSearchResults?.classList.add('hidden');
       }
     });
   });
@@ -471,6 +546,43 @@
 <style>
   .scrolled {
     @apply h-16 lg:h-20;
+  }
+  .scrolled .header-nav img {
+    @apply h-16 lg:h-20 py-0;
+    max-height: 75% !important;
+  }
+
+  @media (max-width: 767px) {
+    #header.scrolled .header-logo,
+    #header.mobile-search-active .header-logo {
+      display: none !important;
+    }
+    #header.scrolled .header-mobile-search-btn,
+    #header.mobile-search-active .header-mobile-search-btn {
+      display: flex !important;
+    }
+    #header.scrolled .header-scrolled-search,
+    #header.mobile-search-active .header-scrolled-search {
+      display: flex !important;
+    }
+    #header.scrolled .header-nav {
+      height: 3.5rem !important;
+    }
+    #header.mobile-search-active .header-nav {
+      height: 5rem !important;
+    }
+    #mobile-search {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .scrolled .header-nav {
+      height: 5rem !important;
+    }
+    .scrolled .header-logo {
+      height: 5rem !important;
+    }
   }
 
   @media (max-height: 600px) and (orientation: landscape) {
@@ -490,5 +602,53 @@
     #header .header-nav {
       height: 4rem !important;
     }
+    #header.scrolled .header-scrolled-search {
+      display: none !important;
+    }
   }
+  @media (min-width: 0px) {
+    #header[data-mobile-hero="true"] {
+      background: transparent;
+      backdrop-filter: none;
+      border: 0;
+    }
+    #header[data-mobile-hero="true"].scrolled {
+      height: auto;
+      background: rgb(255 255 255 / 95%);
+      backdrop-filter: blur(12px);
+    }
+    #header[data-mobile-hero="true"] .header-nav {
+      height: 112px !important;
+      padding: 12px 14px;
+    }
+    #header[data-mobile-hero="true"].scrolled .header-nav { height: 72px !important; }
+    #header[data-mobile-hero="true"] .header-logo {
+      display: flex !important;
+      margin-left: 0;
+      height: 88px;
+    }
+    #header[data-mobile-hero="true"] .header-logo img { max-height: 100%; }
+    #header[data-mobile-hero="true"].scrolled .header-logo { height: 60px; }
+    #header[data-mobile-hero="true"] .header-nav > ul,
+    #header[data-mobile-hero="true"] .header-nav > .lg\:flex,
+    #header[data-mobile-hero="true"] .header-mobile-search-btn,
+    #header[data-mobile-hero="true"] .header-scrolled-search,
+    #header[data-mobile-hero="true"] .mobile-landscape-show { display: none !important; }
+    #header[data-mobile-hero="true"] #mobile-menu-button {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgb(255 255 255 / 40%);
+      color: white;
+      background: rgb(255 255 255 / 10%);
+    }
+    #header[data-mobile-hero="true"].scrolled #mobile-menu-button {
+      color: #244c32;
+      border-color: #d1d5db;
+    }
+  }
+  #header[data-mobile-hero="true"] #mobile-menu:not(.hidden) { display: block !important; }
 </style>

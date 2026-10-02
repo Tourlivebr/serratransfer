@@ -1,137 +1,140 @@
 ---
+import ContatosIngressos from '../components/ContatosIngressos.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StarRating from '../components/StarRating.astro';
 
-// Dados dos ingressos (categoria "INGRESSOS E ATRAÇÕES")
+// Dados dos ingressos (categoria "INGRESSOS E ATRAÇÕES") - PARCEIROS OFICIAIS
 const ingressos = [
   {
     id: 1,
-    titulo: "Cristais de Gramado",
-    subtitulo: "Ingresso",
-    categoria: "INGRESSOS E ATRAÇÕES",
-    imagem: "/images/cristais/cristais_de_gramado_o_inquestionavel.jpg",
-    avaliacao: 4.67,
-    totalAvaliacoes: 6,
-    preco: 38.00,
-    slug: "cristais-de-gramado",
-    duracao: "2 horas",
+    titulo: "ParksNet Passaporte",
+    subtitulo: "Todos os parques da Serra Gaúcha em um só lugar",
+    categoria: "PASSEIOS E PARQUES",
+    imagem: "https://myjcwvyyspwituevmdeu.supabase.co/storage/v1/render/image/public/product-images/products/1788357118532-q366rrkc9m.webp?width=800&resize=contain&quality=80",
+    avaliacao: 4.9,
+    totalAvaliacoes: 1280,
+    slug: "parksnet",
+    linkOficial: "https://parksnet.com.br/passeios-e-ingressos-serra-gaucha-com-a-parksnet?bookingAgency=5022",
+    duracao: "Varia conforme atração escolhida",
     tags: [
-      "Fábrica de cristal Murano",
-      "Tour ao vivo da produção artística",
-      "Espetáculo 'A Voz do Cristal'"
+      "Snowland, NBA Park, Skyglass",
+      "Pague em até 10x sem juros",
+      "Cancelamento garantido"
     ]
   },
   {
     id: 2,
-    titulo: "Grupo Dreams",
-    subtitulo: "Passaporte para 7 Atrações",
-    categoria: "INGRESSOS E ATRAÇÕES",
-    imagem: "/images/grupo-dreams-passaporte.jpg",
-    avaliacao: 4.01,
-    totalAvaliacoes: 10,
-    preco: 199.00,
-    slug: "grupo-dreams",
-    duracao: "4 horas",
+    titulo: "Kongo Pizzaria",
+    subtitulo: "Uma experiência animal em meio à selva",
+    categoria: "PIZZARIA TEMÁTICA",
+    imagem: "https://assets.planne.com.br/apps/34FM2SZ2A3S/images/_/Pga3b6vi0z0NM39FINKKOZ71F8gDhDyoGpqDNYzE.jpg",
+    avaliacao: 4.8,
+    totalAvaliacoes: 630,
+    slug: "kongo-pizzaria",
+    linkOficial: "https://vendas.kongogramado.com.br?ac=3QS01LBV0I",
+    duracao: "~2h30 a 3h (rodízio + show temático)",
     tags: [
-      "8 atrações imperdíveis aqui",
-      "Espaços interativos para selfies",
-      "Cenários românticos para casais"
-    ]
+      "Selva temática Maik, Ary, Aquila",
+      "Rodízio de pizzas premium",
+      "Shows: Aventura na Selva, Alguém viu o Maik, Sons da Natureza"
+    ],
+    whatsappText: "Olá! Gostaria de reservar o ingresso Kongo Pizzaria (Selva temática de Gramado). Preenchido pelo site Gramado Tchê Turismo."
   },
   {
     id: 3,
-    titulo: "Parque Terra Mágica Florybal",
-    subtitulo: "Ingresso",
-    categoria: "INGRESSOS E ATRAÇÕES",
-    imagem: "/images/parqueflorybal/terra-magica-florybal.webp",
-    avaliacao: 4.57,
-    totalAvaliacoes: 7,
-    preco: 75.00,
-    slug: "terra-magica-florybal",
-    duracao: "3 horas",
+    titulo: "Parque da Mônica",
+    subtitulo: "A magia da Vila da Mônica na Serra Gaúcha",
+    categoria: "PARQUE TEMÁTICO",
+    imagem: "https://d335luupugsy2.cloudfront.net/cms/files/434197/1752601582/$bqovgdvnd0q",
+    avaliacao: 4.8,
+    totalAvaliacoes: 1500,
+    slug: "parque-da-monica",
+    linkOficial: "https://ingressos.viladamonica.com.br/carrinho/ativarCupom?nrCupom=VANDERLEIFAUSTINO&byUrl=true",
+    duracao: "Dia todo (funcionamento das 10h às 18h)",
     tags: [
-      "Dinossauros realistas e sonoros",
-      "Cachoeiras e natureza preservada",
-      "Trilhas mágicas e temáticas"
-    ]
+      "Parque Vila da Mônica Gramado",
+      "Mais de 20 atrações",
+      "Turma da Mônica ao vivo"
+    ],
+    whatsappText: "Olá! Gostaria de reservar o ingresso do Parque da Mônica (Vila da Mônica em Gramado). Preenchido pelo site Gramado Tchê Turismo."
   },
   {
     id: 4,
-    titulo: "Parque Vila da Mônica",
-    subtitulo: "Ingresso",
-    categoria: "INGRESSOS E ATRAÇÕES",
-    imagem: "/images/monica/monica.jpg",
-    avaliacao: 4.14,
-    totalAvaliacoes: 7,
-    preco: 21.50,
-    slug: "parque-vila-da-monica",
-    duracao: "2h30min",
+    titulo: "Era do Fogo Fondue Temático",
+    subtitulo: "A experiência mais cavernosa de Gramado",
+    categoria: "FONDUE TEMÁTICO",
+    imagem: "https://assets.planne.com.br/apps/KXBS57CN5A8/images/_/v3wu8Q6aRqLU902MsUEdHkIpzMtHuN2NecOce9wx.png",
+    avaliacao: 4.8,
+    totalAvaliacoes: 320,
+    slug: "era-do-fogo",
+    linkOficial: "https://ingressos.eradofogo.com.br?ac=",
+    duracao: "2h30 a 3h (sessões 18h e 21h)",
     tags: [
-      "Diversão para toda a família",
-      "Encontro com personagens famosos",
-      "Ambiente seguro e inclusivo"
+      "Fondue na caverna pré-histórica",
+      "Dos criadores da Hector Pizzaria",
+      "Gruga e os cavernosos"
     ]
   },
   {
     id: 5,
-    titulo: "Parque Space Adventure I",
-    subtitulo: "Ingresso",
-    categoria: "INGRESSOS E ATRAÇÕES",
-    imagem: "/images/spaceadventure/space01.webp",
-    avaliacao: 4.00,
-    totalAvaliacoes: 6,
-    preco: 39.90,
-    slug: "parque-space-adventure",
-    duracao: "2h15min",
+    titulo: "Ferrovia Secreta Hector",
+    subtitulo: "Sequência de comida americana no trem mágico",
+    categoria: "GASTRONOMIA TEMÁTICA",
+    imagem: "/images/ferrovia hector.webp",
+    avaliacao: 4.7,
+    totalAvaliacoes: 245,
+    slug: "ferrovia-secreta",
+    linkOficial: "https://ferroviasecreta.hectordragao.com.br?ac=0",
+    duracao: "2h30 por viagem",
     tags: [
-      "Acesso limitado a 15 atrações",
-      "Show de patinação artística",
-      "Patinação no gelo inclusa"
+      "Trem mágico do Hector",
+      "Comida americana farta",
+      "Mágica com Edgar Faísca"
     ]
   },
   {
     id: 6,
-    titulo: "Mini Mundo",
-    subtitulo: "Ingresso",
-    categoria: "INGRESSOS E ATRAÇÕES",
-    imagem: "/images/Mini-Mundo/minimundo.png",
-    avaliacao: 4.80,
-    totalAvaliacoes: 8,
-    preco: 58.00,
-    slug: "mini-mundo",
-    duracao: "2 horas",
+    titulo: "Hector Pizzaria",
+    subtitulo: "Rodízio de Discos de Sabor na Escola de Magia Ônyra",
+    categoria: "RODÍZIO DE PIZZA",
+    imagem: "https://assets.planne.com.br/apps/56TSFCYPGR3/images/_/6XcTkjcRN2I8ApRkvYfnN7kGtCCPCd7fifjyAMpH.jpg",
+    avaliacao: 4.9,
+    totalAvaliacoes: 512,
+    slug: "hector-pizzaria",
+    linkOficial: "https://ingressos.hectordragao.com.br?ac=",
+    duracao: "2h a 2h30 (rodízio 80+ sabores)",
     tags: [
-      "Cidade em miniatura",
-      "Réplicas fiéis de obras brasileiras",
-      "Parque ao ar livre"
+      "Escola de Magia Ônyra",
+      "Mais de 80 sabores de pizza",
+      "Pocket shows com personagens"
     ]
   },
   {
     id: 7,
-    titulo: "Alpen Park",
-    subtitulo: "Ingresso",
-    categoria: "INGRESSOS E ATRAÇÕES",
-    imagem: "/images/Alpenpark/Alpenpark01.JPG",
-    avaliacao: 4.65,
-    totalAvaliacoes: 12,
-    preco: 32.00,
-    slug: "alpen-park",
-    duracao: "3 horas",
+    titulo: "Gatzz Fondue & Show",
+    subtitulo: "Dinner show de Broadway na Serra Gaúcha",
+    categoria: "DINNER SHOW",
+    imagem: "https://fondue.gatzz.com.br/ambiente/gatzz1.jpg",
+    avaliacao: 4.8,
+    totalAvaliacoes: 380,
+    slug: "gatzz",
+    linkOficial: "https://www.gatzz.com.br?ac=",
+    duracao: "~3h (jantar + espetáculo 22 artistas)",
     tags: [
-      "Montanha-russa alpina",
-      "Tirolesa panorâmica",
-      "Vista da Serra Gaúcha"
+      "Fondue premium 3 etapas",
+      "Show com 22 artistas",
+      "Classificação 18+ (alguns espetáculos)"
     ]
   }
 ];
 ---
 
 <BaseLayout 
-  title="Ingressos e Atrações | Serra Transfer - Gramado e Canela"
-  description="Encontre os melhores ingressos para atrações em Gramado e Canela. Parques temáticos, museus e experiências únicas na Serra Gaúcha com a Serra Transfer!"
-  keywords={['ingressos Gramado', 'ingressos Canela', 'atrações Serra Gaúcha', 'parques temáticos RS', 'Serra Transfer']}
+  title="Ingressos e Atrações | Gramado Tchê Turismo - Gramado e Canela"
+  description="Encontre os melhores ingressos para atrações em Gramado e Canela. Parques temáticos, museus e experiências únicas na Serra Gaúcha com a Gramado Tchê Turismo!"
+  keywords={['ingressos Gramado', 'ingressos Canela', 'atrações Serra Gaúcha', 'parques temáticos RS', 'Gramado Tchê Turismo']}
   image="/images/link_ingressos.jpg"
 >
   <Header />
@@ -139,15 +142,15 @@ const ingressos = [
   <main class="pt-20 lg:pt-24">
     <!-- Hero Section -->
     <section class="relative text-white py-8 lg:py-20">
-      <!-- Background Image with Fixed Position -->
-      <div class="absolute inset-0 z-0 bg-cover bg-center" style="background-image: url('/images/link_ingressos.jpg'); background-attachment: fixed;">
+      <!-- Background Image com scroll default (mobile) + local (desktop, evita bug bg-fixed iOS) -->
+      <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-scroll lg:bg-local" style="background-image: url('/images/link_ingressos.jpg');">
         <div class="absolute inset-0 bg-black/30"></div>
       </div>
       <div class="container relative z-10 mx-auto px-4 text-center">
         <div class="max-w-4xl mx-auto">
           <h1 class="text-5xl lg:text-7xl font-bold mb-6 leading-tight">Ingressos e Atrações</h1>
           <p class="text-xl lg:text-2xl text-primary-100 mb-8 leading-relaxed">
-            Descubra as melhores atrações de Gramado e Canela com preços especiais
+            Descubra as melhores atrações de Gramado e Canela
           </p>
           <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <div class="flex items-center text-primary-100">
@@ -155,12 +158,6 @@ const ingressos = [
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
               </svg>
               Ingressos garantidos
-            </div>
-            <div class="flex items-center text-primary-100">
-              <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-              </svg>
-              Melhor preço
             </div>
             <div class="flex items-center text-primary-100">
               <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -193,60 +190,69 @@ const ingressos = [
     <!-- Grid de Ingressos -->
     <section class="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div class="container mx-auto px-4">
-        <div id="ingressos-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div id="ingressos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {ingressos.map((ingresso) => (
-            <div class="ingresso-card group bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700" data-category={ingresso.titulo.toLowerCase().includes('parque') ? 'parques' : 'museus'}>
-              <div class="relative overflow-hidden">
+            <div class="ingresso-card h-full group" data-category={ingresso.titulo.toLowerCase().includes('parque') ? 'parques' : 'museus'}>
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700 h-full flex flex-col">
+              <div class="relative h-52 lg:h-56 overflow-hidden">
                 <img 
                   src={ingresso.imagem} 
                   alt={ingresso.titulo}
-                  class="w-full h-56 object-cover transition-transform duration-500 group-hover:scale-110"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="absolute top-4 left-4">
-                  <span class="bg-primary-600 text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg backdrop-blur-sm">
+                <div class="absolute top-3 left-3">
+                  <span class="bg-primary-600 text-white text-sm font-semibold px-3 py-1.5 rounded-full shadow-lg backdrop-blur-sm">
                     {ingresso.categoria}
                   </span>
                 </div>
-                <div class="absolute top-4 right-4">
-                  <div class="bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
-                    <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-                    </svg>
-                  </div>
+                <div class="absolute top-3 right-3 bg-white/90 dark:bg-gray-900/80 backdrop-blur-sm rounded-full px-3 py-1.5 text-sm font-semibold text-gray-700 dark:text-gray-200 shadow">
+                  ⭐ {ingresso.avaliacao}
                 </div>
               </div>
               
-              <div class="p-6 h-full flex flex-col">
-              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 group-hover:text-primary-600 transition-colors duration-300">
+              <div class="p-4 lg:p-5 flex flex-col flex-1 gap-3">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-1">
+                    <StarRating rating={ingresso.avaliacao} />
+                    <span class="text-sm text-gray-500 dark:text-gray-400 ml-1 font-medium">({ingresso.totalAvaliacoes})</span>
+                  </div>
+                  <span class="text-sm font-medium text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                    ⏱ {ingresso.duracao}
+                  </span>
+                </div>
+                
+              <h3 class="font-bold text-2xl lg:text-xl text-gray-900 dark:text-white leading-tight line-clamp-2 group-hover:text-primary-600 transition-colors duration-300">
                   {ingresso.titulo}
                 </h3>
-                <p class="text-gray-600 dark:text-gray-300 mb-4 text-sm">
+                <p class="text-gray-600 dark:text-gray-400 text-lg lg:text-base leading-relaxed line-clamp-2 flex-1">
                   {ingresso.subtitulo}
                 </p>
                 
-                <div class="border-t border-gray-100 dark:border-gray-700 pt-6 mt-auto">
-                  <div class="flex items-center justify-between mb-6">
-                    <div>
-                      <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">A partir de</p>
-                      <p class="text-3xl font-bold text-primary-600 dark:text-primary-400">
-                        R$ {ingresso.preco.toFixed(2).replace('.', ',')}
-                      </p>
-                    </div>
-                  </div>
-                  <a 
-                    href={`/${ingresso.slug}`}
-                    class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 block text-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                <div class="flex flex-wrap gap-2 mt-2 mb-2">
+                  {ingresso.tags.slice(0, 2).map(tag => (
+                    <span class="px-3 py-1 bg-primary-50 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium line-clamp-1">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                
+                <div class="flex flex-col gap-2 mt-auto">
+                  <a
+                    href={ingresso.linkOficial}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-4 rounded-xl transition-colors duration-200 block text-center text-base shadow-md"
                   >
-                    <span class="flex items-center justify-center gap-2">
-                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path>
-                      </svg>
+                    <span class="flex items-center justify-center">
                       RESERVE AGORA
                     </span>
                   </a>
+                  
+                  <ContatosIngressos titulo={ingresso.titulo} />
                 </div>
               </div>
+            </div>
             </div>
           ))}
         </div>
