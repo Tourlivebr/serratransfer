@@ -145,7 +145,7 @@ const passeiosReceptivo = [
     "slug": "tour-vinhos-e-sabores",
     "whatsappText": "Olá! Quero reservar o Tour Vinhos e Sabores."
   }
-];
+].sort((a, b) => Number(b.category === 'TRANSFER') - Number(a.category === 'TRANSFER'));
 ---
 
 <section id="passeios-receptivo" class="relative py-12 lg:py-16">
