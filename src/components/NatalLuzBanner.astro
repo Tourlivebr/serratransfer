@@ -1,6 +1,6 @@
 ---
 const message = 'Olá! Quero reservar meus passeios para o Natal Luz em Gramado e Canela.';
-const whatsappUrl = 'https://wa.me/5554992065626?text=' + encodeURIComponent(message);
+const whatsappUrl = 'https://wa.me/5554993220552?text=' + encodeURIComponent(message);
 ---
 
 <section class="christmas-banner" aria-labelledby="christmas-title">
@@ -17,34 +17,26 @@ const whatsappUrl = 'https://wa.me/5554992065626?text=' + encodeURIComponent(mes
         <span aria-hidden="true">&#8594;</span>
       </a>
     </div>
-    <ul class="christmas-benefits" aria-label="Nosso atendimento">
-      <li><span aria-hidden="true">&#10003;</span> Roteiros personalizados</li>
-      <li><span aria-hidden="true">&#10003;</span> Passeios no seu ritmo</li>
-      <li><span aria-hidden="true">&#10003;</span> Atendimento pelo WhatsApp</li>
-      <li><span aria-hidden="true">&#10003;</span> Sua viagem bem cuidada</li>
-    </ul>
+
   </div>
 </section>
 
 <style>
-  .christmas-banner{position:relative;isolation:isolate;overflow:hidden;background:#032e21;color:#fffaf0}
+  .christmas-banner{position:relative;isolation:isolate;overflow:hidden;background:var(--clr-primary-950);color:var(--clr-cream-50)}
   .christmas-background,.christmas-overlay{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
   .christmas-background{object-fit:cover;object-position:center 52%}
-  .christmas-overlay{background:linear-gradient(90deg,rgba(0,25,15,.68),rgba(0,25,15,.76) 40%,rgba(0,25,15,.35))}
+  .christmas-overlay{background:linear-gradient(90deg,rgba(0,18,56,.68),rgba(0,18,56,.76) 40%,rgba(0,18,56,.35))}
   .christmas-content{display:flex;align-items:center;justify-content:space-between;gap:48px;min-height:360px;padding-top:48px;padding-bottom:48px;max-width:1200px}
   .christmas-copy{max-width:650px}
-  .christmas-eyebrow{display:flex;align-items:center;gap:10px;color:#f5d68c;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
+  .christmas-eyebrow{display:flex;align-items:center;gap:10px;color:var(--clr-accent-200);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
   .christmas-eyebrow span{font-size:24px}
   h2{font-size:clamp(30px,3vw,44px);font-weight:700;line-height:1.15;margin:0}
-  h2 span{display:inline-block;font-family:Georgia,serif;color:#f5d68c;font-size:1.5em;line-height:1.15}
+  h2 span{display:inline-block;font-family:Georgia,serif;color:var(--clr-accent-200);font-size:1.5em;line-height:1.15}
   .christmas-description{font-size:15px;line-height:1.65;max-width:430px;margin:18px 0 24px}
-  .christmas-button{display:inline-flex;align-items:center;gap:12px;padding:15px 24px;background:#087d35;color:white;border:1px solid #73c985;border-radius:999px;font-weight:700;box-shadow:0 5px 24px #001b0340;transition:background .2s}
-  .christmas-button:hover{background:#09662d}
-  .christmas-button:focus-visible{outline:3px solid #f5d68c;outline-offset:5px}
+  .christmas-button{display:inline-flex;align-items:center;gap:12px;padding:15px 24px;background:var(--clr-accent-600);color:white;border:1px solid var(--clr-accent-300);border-radius:999px;font-weight:700;box-shadow:0 5px 24px color-mix(in srgb, var(--clr-primary-950) 25.1%, transparent);transition:background .2s}
+  .christmas-button:hover{background:var(--clr-accent-700)}
+  .christmas-button:focus-visible{outline:3px solid var(--clr-accent-200);outline-offset:5px}
   .christmas-button svg{width:24px;height:24px;flex-shrink:0}
   .christmas-button>span{margin-left:4px;font-size:22px}
-  .christmas-benefits{list-style:none;display:grid;gap:22px;background:#fffaf0f2;color:#183b2a;padding:28px;border-radius:20px;min-width:290px;font-size:14px;box-shadow:0 12px 30px #0002}
-  .christmas-benefits li{display:flex;align-items:center;gap:12px}
-  .christmas-benefits span{font-weight:700;color:#087d35}
-  @media(max-width:767px){.christmas-content{flex-direction:column;gap:28px;align-items:stretch;padding:40px 24px}.christmas-copy{text-align:center;margin:auto}.christmas-eyebrow{justify-content:center;font-size:10px;letter-spacing:.08em}h2{font-size:30px}.christmas-description{font-size:14px}.christmas-button{font-size:14px;padding:14px 20px}.christmas-benefits{min-width:0;width:min(100%,370px);margin:auto;gap:16px;padding:22px}.christmas-background{object-position:center}.christmas-overlay{background:#002215b8}}
+  @media(max-width:767px){.christmas-content{flex-direction:column;gap:28px;align-items:stretch;padding:40px 24px}.christmas-copy{text-align:center;margin:auto}.christmas-eyebrow{justify-content:center;font-size:10px;letter-spacing:.08em}h2{font-size:30px}.christmas-description{font-size:14px}.christmas-button{font-size:14px;padding:14px 20px}.christmas-background{object-position:center}.christmas-overlay{background:color-mix(in srgb, var(--clr-primary-950) 72.16%, transparent)}}
 </style>

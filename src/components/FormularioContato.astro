@@ -998,7 +998,7 @@ ${detalhes.join('\n')}
 📍 *Enviado através do site* — Passeios Gramado Canela
 ⏰ *${new Date().toLocaleString('pt-BR')}*`;
 
-    const numeroWhatsApp = '5554992065626';
+    const numeroWhatsApp = '5554993220552';
     const urlWhatsApp = buildWhatsAppUrl(numeroWhatsApp, msg);
 
     try {
@@ -1032,26 +1032,26 @@ ${detalhes.join('\n')}
 </script>
 
 <style>
-  .package-section{position:relative;isolation:isolate;background:#032e21;color:#fffaf0;overflow:hidden}
+  .package-section{position:relative;isolation:isolate;background:var(--clr-primary-950);color:var(--clr-cream-50);overflow:hidden}
   .package-background{position:absolute;bottom:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center bottom;z-index:-2;opacity:.75}
-  .package-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#002215dd,#002215b8),linear-gradient(180deg,#002215 0%,#002215b8 45%,#00221530 100%)}
+  .package-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,color-mix(in srgb, var(--clr-primary-950) 86.67%, transparent),color-mix(in srgb, var(--clr-primary-950) 72.16%, transparent)),linear-gradient(180deg,var(--clr-primary-950) 0%,color-mix(in srgb, var(--clr-primary-950) 72.16%, transparent) 45%,color-mix(in srgb, var(--clr-primary-950) 18.82%, transparent) 100%)}
   .package-container{padding-top:64px;padding-bottom:64px}
   .package-layout{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:start;gap:56px}
   .package-intro{padding-top:48px}
-  .package-intro h2{font-size:clamp(32px,3.2vw,46px);font-weight:700;line-height:1.15;margin:0 0 24px;color:#fffaf0}
-  .package-intro h2 span{font-family:Georgia,serif;color:#f5d68c;font-size:1.2em}
-  .package-intro p{max-width:430px;font-size:16px;line-height:1.8;margin:0;color:#fffaf0}
+  .package-intro h2{font-size:clamp(32px,3.2vw,46px);font-weight:700;line-height:1.15;margin:0 0 24px;color:var(--clr-cream-50)}
+  .package-intro h2 span{font-family:Georgia,serif;color:var(--clr-accent-200);font-size:1.2em}
+  .package-intro p{max-width:430px;font-size:16px;line-height:1.8;margin:0;color:var(--clr-cream-50)}
   .package-intro strong{display:block;margin-top:10px;font-weight:600}
-  .package-card{background:#f7f4eb;color:#183b2a;border-radius:28px;padding:32px;box-shadow:0 16px 48px #0003}
-  .package-card-title{font-size:18px;font-weight:700;margin:0 0 24px;color:#183b2a}
-  .package-card :global(label){color:#183b2a}
-  .package-card :global(input:not([type="checkbox"])),.package-card :global(select),.package-card :global(textarea),.package-card :global(#passeiosDropdown){background:#fffdf8;color:#183b2a;border-color:#bed0bd;border-radius:12px}
-  .package-card :global(input::placeholder),.package-card :global(textarea::placeholder){color:#647b68}
-  .package-card :global(#passeiosMenu){background:#fffdf8;color:#183b2a;border-radius:16px}
+  .package-card{background:var(--clr-dark-50);color:var(--clr-primary-900);border-radius:28px;padding:32px;box-shadow:0 16px 48px #0003}
+  .package-card-title{font-size:18px;font-weight:700;margin:0 0 24px;color:var(--clr-primary-900)}
+  .package-card :global(label){color:var(--clr-primary-900)}
+  .package-card :global(input:not([type="checkbox"])),.package-card :global(select),.package-card :global(textarea),.package-card :global(#passeiosDropdown){background:var(--clr-cream-50);color:var(--clr-primary-900);border-color:var(--clr-dark-300);border-radius:12px}
+  .package-card :global(input::placeholder),.package-card :global(textarea::placeholder){color:var(--clr-dark-500)}
+  .package-card :global(#passeiosMenu){background:var(--clr-cream-50);color:var(--clr-primary-900);border-radius:16px}
   .package-card :global(#passeiosMenu label){border-radius:8px}
-  .package-card :global(#passeiosMenu label:hover){background:#edf4e9}
-  .package-card :global(button[type="submit"]){background:#087d35;border:1px solid #73c985;border-radius:999px;font-size:16px;min-height:56px}
-  .package-card :global(button[type="submit"]:hover){background:#09662d}
+  .package-card :global(#passeiosMenu label:hover){background:var(--clr-primary-50)}
+  .package-card :global(button[type="submit"]){background:var(--clr-accent-600);border:1px solid var(--clr-accent-300);border-radius:999px;font-size:16px;min-height:56px}
+  .package-card :global(button[type="submit"]:hover){background:var(--clr-accent-700)}
   @media(max-width:1023px){.package-layout{grid-template-columns:1fr;gap:32px;max-width:720px;margin:auto}.package-intro{text-align:center;padding-top:0}.package-intro p{margin:auto}.package-intro h2{font-size:34px}.package-container{padding-top:44px;padding-bottom:44px}}
   @media(max-width:479px){.package-container{padding-left:16px;padding-right:16px}.package-card{padding:24px 16px;border-radius:24px}.package-intro h2{font-size:30px}.package-intro p{font-size:14px}.package-intro h2 span{font-size:1.2em}}
 </style>
