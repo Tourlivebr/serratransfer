@@ -3,113 +3,223 @@
 ---
 
 <section id="quem-sou" class="relative min-h-[56vh] lg:min-h-[70vh] flex items-center justify-center overflow-hidden pt-20 lg:pt-24">
-  <img src="/images/transfer11.jpg" alt="Transfer na Serra Gaúcha" width="600" height="522" fetchpriority="high" class="mobile-hero-image" />
-  <!-- Overlay escuro para melhor legibilidade -->
-  <div class="hero-overlay absolute inset-0 z-10"></div>
+  <!-- Background Video YouTube (cover total em mobile e desktop) -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 w-[250vw] max-w-none" style="aspect-ratio: 16 / 9; transform: translate(-50%, -50%);">
+      <div id="youtube-bg-player" class="absolute inset-0 w-full h-full border-0"></div>
+    </div>
+    <!-- Fallback image caso iframe bloqueie autoplay -->
+    <div
+      class="absolute inset-0 bg-cover bg-center -z-10"
+      style="background-image: url('/images/imgfundo.png');"
+    ></div>
+  </div>
 
-<!-- Conteúdo -->
-  <div class="hero-content relative z-20 container mx-auto px-4 pb-2 lg:pb-4">
+  <!-- Overlay escuro para melhor legibilidade -->
+  <div class="absolute inset-0 z-10 bg-gradient-to-t from-black/75 via-black/45 to-black/30"></div>
+
+  <!-- Botão Ativar Som (flutuante) -->
+  <button
+    id="toggle-sound-btn"
+    type="button"
+    class="absolute top-24 right-4 z-30 flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 hover:bg-white text-dark-900 text-sm font-semibold shadow-lg backdrop-blur-sm transition-all hover:scale-105 animate-pulse"
+    aria-label="Ativar som do vídeo"
+  >
+    <span id="toggle-sound-icon">🔇</span>
+    <span id="toggle-sound-label">Ativar som</span>
+  </button>
+
+  <!-- Conteúdo -->
+  <div class="relative z-20 container mx-auto px-4 pb-2 lg:pb-4">
     <div class="max-w-4xl mx-auto text-center text-white">
       <!-- Título Principal -->
       <div class="space-y-4 lg:space-y-6 mb-6 lg:mb-8">
-        <h1 class="hero-title">
-          <span>Escolha o<br />destino.</span>
-          <em>A Gramado Tchê<br />cuida do resto.</em>
+        <h1 class="text-3xl lg:text-6xl xl:text-7xl font-bold leading-tight animate-zoom-in">
+          Bah, viva o melhor da Serra Gaúcha!
         </h1>
 
-        <p class="text-lg lg:text-2xl leading-relaxed max-w-3xl mx-auto text-gray-100 animate-zoom-in" style="animation-delay: 0.3s; opacity: 0;">
-          Com a Gramado Tchê Turismo, você conhece Gramado, Canela, Bento Gonçalves, Nova Petrópolis e outros destinos incríveis do seu jeito.
+        <p class="text-lg lg:text-2xl leading-relaxed max-w-3xl mx-auto text-dark-100 animate-zoom-in" style="animation-delay: 0.3s; opacity: 0;">
+          Com a Passeios Gramado Canela, você conhece Gramado, Canela, Bento Gonçalves, Nova Petrópolis e outros destinos incríveis do seu jeito.
           </p>
       </div>
     </div>
   </div>
 
+  <!-- Seta para baixo -->
+  <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20">
+    <a href="#passeios" class="text-accent-300 hover:text-accent-200 transition-colors animate-bounce">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Divisor Boleado Suave -->
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
+    <svg
+      viewBox="0 0 1200 120"
+      preserveAspectRatio="none"
+      class="relative block w-[calc(100%+1.3px)] h-[40px] lg:h-[60px]"
+    >
+      <path d="M0,0 C300,120 900,120 1200,0 L1200,120 L0,120 Z" class="fill-dark-50 dark:fill-dark-900"></path>
+    </svg>
+  </div>
 </section>
 
-<div class="mobile-hero-actions">
-  <div class="hero-category-links">
-    <a href="/passeios">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4m8-4v4M4 11h16m-11 4h2m3 0h2m-7 3h2"/></svg>
-      <span><strong>Passeios e Transfer</strong><span>Escolha o passeio</span></span>
-      <span aria-hidden="true">›</span>
-    </a>
-    <a href="/ingressos">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5h16v5a2 2 0 000 4v5H4v-5a2 2 0 000-4V5zM15 5v3m0 3v2m0 3v3"/></svg>
-      <span><strong>Ingressos e Atrações</strong><span>Veja os ingressos</span></span>
-      <span aria-hidden="true">›</span>
-    </a>
-  </div>
-  <div id="hero-service-search" class="hero-service-search">
-    <label for="hero-search-input" class="sr-only">Pesquisar serviços</label>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg>
-    <input id="hero-search-input" type="search" placeholder="Pesquisar serviços..." autocomplete="off" aria-controls="hero-search-results" />
-    <div id="hero-search-results" class="hidden absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-xl max-h-72 overflow-y-auto text-left" aria-live="polite"></div>
-  </div>
-</div>
+<script is:inline>
+  (function() {
+    const VIDEO_ID = '-38D8mSztg0';
+    const isMobile = /iPhone|iPad|iPod|Android|Mobi|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent || navigator.vendor || window.opera || '');
+    let player = null;
+    let isMuted = true;
+    let videoStarted = false;
+    let apiReadyTimer = null;
+
+    // Força PLAY MUTED com múltiplas tentativas (mobile bloqueia na 1ª tentativa)
+    function forcePlayMuted() {
+      if (!player || typeof player.playVideo !== 'function') return;
+      try { player.mute(); } catch (_) {}
+      const attempts = [0, 250, 700, 1400, 2400];
+      attempts.forEach((delay) => {
+        setTimeout(() => {
+          try {
+            player.playVideo();
+            player.mute();
+          } catch (_) {}
+        }, delay);
+      });
+    }
+
+    // Carrega API do YouTube IFrame
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
+
+    window.onYouTubeIframeAPIReady = function() {
+      clearTimeout(apiReadyTimer);
+      player = new YT.Player('youtube-bg-player', {
+        videoId: VIDEO_ID,
+        host: 'https://www.youtube-nocookie.com',
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          loop: 1,
+          playlist: VIDEO_ID,
+          controls: 0,
+          modestbranding: 1,
+          playsinline: 1,
+          rel: 0,
+          disablekb: 1,
+          fs: 0,
+          iv_load_policy: 3,
+          cc_load_policy: 0,
+          hl: 'pt-br',
+          origin: window.location.origin
+        },
+        events: {
+          onReady: function(e) {
+            // Garante playsinline e allow autoplay no elemento iframe real (iOS exige)
+            const iframe = document.getElementById('youtube-bg-player')?.querySelector('iframe')
+              || document.getElementById('youtube-bg-player');
+            if (iframe && iframe.tagName === 'IFRAME') {
+              iframe.setAttribute('playsinline', '');
+              iframe.setAttribute('webkit-playsinline', '');
+              iframe.setAttribute('allowfullscreen', '');
+              iframe.setAttribute('allow', 'autoplay; fullscreen; encrypted-media; picture-in-picture; accelerometer');
+              iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+            }
+
+            try {
+              e.target.unMute();
+              e.target.setVolume(80);
+              isMuted = e.target.isMuted();
+              updateSoundButton();
+            } catch (err) { /* bloqueado pelo navegador */ }
+
+            // Múltiplas tentativas de PLAY MUTADO (essencial para mobile)
+            forcePlayMuted();
+
+            // Se ainda estiver mutado após 1s, ativa no primeiro toque/clique da página QUALQUER lugar
+            setTimeout(() => {
+              if (!videoStarted) {
+                const firstInteract = function() {
+                  try {
+                    e.target.unMute();
+                    e.target.setVolume(80);
+                    e.target.playVideo();
+                    isMuted = e.target.isMuted();
+                    updateSoundButton();
+                  } catch (err) { /* ignora */ }
+                  document.removeEventListener('click', firstInteract);
+                  document.removeEventListener('touchstart', firstInteract, { capture: true });
+                  document.removeEventListener('keydown', firstInteract);
+                  document.removeEventListener('scroll', firstInteract, { once: true, passive: true });
+                };
+                document.addEventListener('click', firstInteract, { once: true, passive: true });
+                document.addEventListener('touchstart', firstInteract, { once: true, passive: true, capture: true });
+                document.addEventListener('keydown', firstInteract, { once: true, passive: true });
+              }
+            }, 900);
+          },
+          onStateChange: function(e) {
+            // Video ESTÁ reproduzindo (YT.PlayerState.PLAYING === 1, BUFFERING === 3)
+            if (e.data === 1 || e.data === 3) {
+              if (!videoStarted) {
+                videoStarted = true;
+              }
+            }
+            // Looping garantido em playback 0 (ended)
+            if (e.data === 0) {
+              try {
+                e.target.seekTo(0);
+                e.target.mute();
+                e.target.playVideo();
+              } catch (_) {}
+            }
+          }
+        }
+      });
+    };
+
+    // Atualiza botão flutuante
+    function updateSoundButton() {
+      const btn = document.getElementById('toggle-sound-btn');
+      const icon = document.getElementById('toggle-sound-icon');
+      const label = document.getElementById('toggle-sound-label');
+      if (!btn || !icon || !label) return;
+
+      if (isMuted) {
+        icon.textContent = '🔇';
+        label.textContent = 'Ativar som';
+      } else {
+        icon.textContent = '🔊';
+        label.textContent = 'Som ativo';
+        btn.classList.remove('animate-pulse');
+      }
+    }
+
+    // Configura o controle de som
+    document.addEventListener('DOMContentLoaded', function() {
+      // Botão toggle manual de som (flutuante canto superior direito)
+      const btn = document.getElementById('toggle-sound-btn');
+      btn?.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (!player) return;
+        if (isMuted) {
+          player.unMute();
+          player.setVolume(80);
+          player.playVideo();
+        } else {
+          player.mute();
+        }
+        isMuted = player.isMuted();
+        updateSoundButton();
+      });
+    });
+  })();
+</script>
 
 <style>
-  /* Hero shared by mobile, tablet and desktop. */
-  @media (min-width: 0px) {
-    #quem-sou {
-      min-height: 740px;
-      min-height: max(650px, 84svh);
-      padding: 160px 0 76px;
-      align-items: flex-end;
-    }
-    .mobile-hero-image {
-      display: block;
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 48% center;
-    }
-    .hero-video, .hero-arrow, .hero-divider { display: none; }
-    .hero-content { padding: 0 22px; }
-    .hero-content > div { text-align: left; max-width: none; }
-    .hero-overlay { background: linear-gradient(180deg, rgb(0 40 56 / 12%) 15%, rgb(0 40 56 / 45%) 50%, #002d3de8 100%); }
-    .hero-content h1 { font-size: clamp(42px, 10vw, 58px); font-weight: 900; line-height: 1.02; letter-spacing: -1.5px; }
-    .hero-title span, .hero-title em { display: block; }
-    .hero-title em { color: #ff6b00; margin-top: 10px; font-style: italic; }
-    .hero-content p { max-width: 420px; margin-left: 0; margin-right: 0; }
-    .hero-content p { font-size: 17px; line-height: 1.6; }
-    .hero-content .animate-zoom-in { animation: none; opacity: 1 !important; }
-    .hero-content .space-y-4 { margin-bottom: 0; }
-    .mobile-hero-actions {
-      display: block;
-      position: relative;
-      z-index: 30;
-      margin: -30px 16px 32px;
-      padding: 12px;
-      border-radius: 24px;
-      background: white;
-      box-shadow: 0 12px 30px rgb(0 0 0 / 8%);
-    }
-    .hero-category-links { display: grid; grid-template-columns: 1fr 1fr; margin-bottom: 10px; }
-    .hero-category-links a { display: flex; align-items: center; gap: 8px; padding: 14px 6px; color: #00516b; }
-    .hero-category-links a + a { border-left: 1px solid #e5e7eb; }
-    .hero-category-links svg { width: 40px; height: 48px; padding: 10px; background: #edf3f5; border-radius: 10px; flex-shrink: 0; }
-    .hero-category-links strong { display: block; font-size: 11px; line-height: 1.5; }
-    .hero-category-links span span { display: block; font-size: 12px; color: #64748b; margin-top: 4px; }
-    .hero-category-links a > span:last-child { margin-left: auto; font-size: 22px; }
-    .hero-service-search { position: relative; color: white; }
-    .hero-service-search > svg { position: absolute; left: 18px; top: 20px; width: 20px; height: 20px; pointer-events: none; }
-    .hero-service-search input { width: 100%; min-width: 0; height: 60px; padding: 14px 18px 14px 48px; border-radius: 16px; background: #00516b; color: white; font-size: 16px; }
-    .hero-service-search input::placeholder { color: white; opacity: 1; }
-    .hero-service-search input:focus-visible { outline: 3px solid #84b795; outline-offset: 3px; }
-  }
-  @media (min-width: 768px) {
-    #quem-sou { min-height: 760px; padding-bottom: 100px; }
-    .hero-content { padding: 0 48px; }
-    .hero-content h1 { font-size: clamp(58px, 6vw, 76px); }
-    .hero-content p { font-size: 19px; max-width: 520px; }
-    .mobile-hero-actions { max-width: 720px; margin: -44px auto 40px; padding: 16px; }
-    .hero-category-links a { padding: 18px 14px; gap: 14px; }
-    .hero-category-links strong { font-size: 12px; }
-    .hero-category-links span span { font-size: 16px; }
-    .hero-category-links svg { width: 48px; height: 48px; padding: 12px; }
-  }
   @keyframes zoom-in {
     0% {
       transform: scale(1.2);
