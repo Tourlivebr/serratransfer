@@ -8,6 +8,8 @@ import FormReserva from '../../components/FormReserva.astro';
 // Função necessária para modo estático
 export async function getStaticPaths() {
   return [
+    { params: { slug: 'transfer-grande-desfile-de-natal' } },
+    { params: { slug: 'transfer-nativitaten' } },
     { params: { slug: 'tour-o-quatrilho' } },
     { params: { slug: 'tour-trem-vinho' } },
     { params: { slug: 'tour-vinhos-e-sabores' } },
@@ -26,6 +28,82 @@ export async function getStaticPaths() {
 
 // Dados dos passeios
 const passeiosData = {
+  "transfer-grande-desfile-de-natal": {
+    "id":  13,
+    "titulo":  "Transfer Grande Desfile de Natal",
+    "subtitulo":  "Translado para o espetáculo de carros alegóricos e personagens do Natal Luz, no Expogramado",
+    "categoria":  "TRANSFER",
+    "imagem":  "/images/grande-desfile-de-natal/desfile-01.webp",
+    "avaliacao":  0,
+    "totalAvaliacoes":  0,
+    "slug":  "transfer-grande-desfile-de-natal",
+    "duracao":  "A combinar",
+    "price1":  150,
+    "label1":  "1 a 4 pessoas",
+    "price2":  200,
+    "label2":  "5 a 6 pessoas",
+    "whatsappText":  "Olá! Quero reservar o Transfer Grande Desfile de Natal: 1 a 4 pessoas R$ 150,00; 5 a 6 pessoas R$ 200,00.",
+    "tags":  [
+                 "Expogramado · Gramado",
+                 "Ingresso não incluso"
+             ],
+    "preco":  150,
+    "parcelas":  "1 a 4 pessoas:",
+    "temFaixas":  true,
+    "descricao":  "Entre no clima do Natal com o Grande Desfile de Natal, atração do Natal Luz de Gramado no Expogramado. Carros alegóricos, personagens e figurinos coloridos se juntam à música e aos efeitos visuais em um espetáculo para toda a família, realizado em espaço coberto. Reserve seu transfer privativo e combine o local de embarque e os horários na reserva. O valor é por grupo: R$ 150,00 para 1 a 4 pessoas ou R$ 200,00 para 5 a 6 pessoas. Os ingressos para o espetáculo são adquiridos separadamente.",
+    "inclusos":  [
+                     "Transporte privativo para o Grande Desfile de Natal no Expogramado",
+                     "Veículo com motorista",
+                     "Horário e local de embarque a combinar"
+                 ],
+    "naoInclusos":  [
+                        "Ingresso para o espetáculo Grande Desfile de Natal"
+                    ],
+    "horarios":  [
+                     "A combinar conforme a sessão escolhida"
+                 ],
+    "galeria":  [
+                    "/images/grande-desfile-de-natal/desfile-01.webp"
+                ]
+},
+  "transfer-nativitaten": {
+    "id":  12,
+    "titulo":  "Transfer Nativitaten",
+    "subtitulo":  "Translado para o espetáculo de música, luzes e águas do Natal Luz, no Serra Park",
+    "categoria":  "TRANSFER",
+    "imagem":  "/images/nativitaten/nativitaten-01.webp",
+    "avaliacao":  0,
+    "totalAvaliacoes":  0,
+    "slug":  "transfer-nativitaten",
+    "duracao":  "A combinar",
+    "price1":  300,
+    "label1":  "1 a 4 pessoas",
+    "price2":  350,
+    "label2":  "5 a 6 pessoas",
+    "whatsappText":  "Olá! Quero reservar o Transfer Nativitaten: 1 a 4 pessoas R$ 300,00; 5 a 6 pessoas R$ 350,00.",
+    "tags":  [
+                 "Serra Park · Gramado",
+                 "Ingresso não incluso"
+             ],
+    "preco":  300,
+    "parcelas":  "1 a 4 pessoas:",
+    "temFaixas":  true,
+    "descricao":  "Viva a emoção do Nativitaten, espetáculo do Natal Luz no Serra Park, em Gramado. Música, luzes, águas dançantes e fogos se encontram em uma celebração do nascimento de Jesus. Reserve seu transfer privativo para aproveitar essa experiência com conforto. O valor é por grupo: R$ 300,00 para 1 a 4 pessoas ou R$ 350,00 para 5 a 6 pessoas. Combine os horários e o local de embarque na reserva. O espetáculo acontece ao ar livre; leve roupas adequadas ao clima. Ingressos adquiridos separadamente.",
+    "inclusos":  [
+                     "Transporte privativo para o Nativitaten no Serra Park",
+                     "Veículo com motorista",
+                     "Horário e local de embarque a combinar"
+                 ],
+    "naoInclusos":  [
+                        "Ingresso para o espetáculo Nativitaten"
+                    ],
+    "horarios":  [
+                     "A combinar conforme a sessão escolhida"
+                 ],
+    "galeria":  [
+                    "/images/nativitaten/nativitaten-01.webp"
+                ]
+},
   "tour-o-quatrilho": {
     "id": 1,
     "titulo": "Tour O Quatrilho",

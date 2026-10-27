@@ -6,6 +6,46 @@ import StarRating from '../components/StarRating.astro';
 
 // Dados dos passeios (RECEPTIVO / PASSEIOS PRIVATIVOS) — ORDEM atualizada com Transfer POA em 1º
 const passeios = [
+{
+    "id":  13,
+    "titulo":  "Transfer Grande Desfile de Natal",
+    "subtitulo":  "Translado para o espetáculo de carros alegóricos e personagens do Natal Luz, no Expogramado",
+    "categoria":  "TRANSFER",
+    "imagem":  "/images/grande-desfile-de-natal/desfile-01.webp",
+    "avaliacao":  0,
+    "totalAvaliacoes":  0,
+    "slug":  "transfer-grande-desfile-de-natal",
+    "duracao":  "A combinar",
+    "price1":  150,
+    "label1":  "1 a 4 pessoas",
+    "price2":  200,
+    "label2":  "5 a 6 pessoas",
+    "whatsappText":  "Olá! Quero reservar o Transfer Grande Desfile de Natal: 1 a 4 pessoas R$ 150,00; 5 a 6 pessoas R$ 200,00.",
+    "tags":  [
+                 "Expogramado · Gramado",
+                 "Ingresso não incluso"
+             ]
+},
+{
+    "id":  12,
+    "titulo":  "Transfer Nativitaten",
+    "subtitulo":  "Translado para o espetáculo de música, luzes e águas do Natal Luz, no Serra Park",
+    "categoria":  "TRANSFER",
+    "imagem":  "/images/nativitaten/nativitaten-01.webp",
+    "avaliacao":  0,
+    "totalAvaliacoes":  0,
+    "slug":  "transfer-nativitaten",
+    "duracao":  "A combinar",
+    "price1":  300,
+    "label1":  "1 a 4 pessoas",
+    "price2":  350,
+    "label2":  "5 a 6 pessoas",
+    "whatsappText":  "Olá! Quero reservar o Transfer Nativitaten: 1 a 4 pessoas R$ 300,00; 5 a 6 pessoas R$ 350,00.",
+    "tags":  [
+                 "Serra Park · Gramado",
+                 "Ingresso não incluso"
+             ]
+},
   {
     "id": 1,
     "titulo": "Transfer IDA e VOLTA • Porto Alegre / Gramado ou Canela",
@@ -328,17 +368,17 @@ const passeios = [
                     {passeio.categoria}
                   </span>
                 </div>
-                <div class="absolute top-3 right-3 bg-white/90 dark:bg-dark-900/80 backdrop-blur-sm rounded-full px-3 py-1.5 text-sm font-semibold text-dark-700 dark:text-dark-200 shadow">
+                {passeio.totalAvaliacoes > 0 && <div class="absolute top-3 right-3 bg-white/90 dark:bg-dark-900/80 backdrop-blur-sm rounded-full px-3 py-1.5 text-sm font-semibold text-dark-700 dark:text-dark-200 shadow">
                   ⭐ {passeio.avaliacao}
-                </div>
+                </div>}
               </div>
               
               <div class="p-4 lg:p-5 flex flex-col flex-1 gap-3">
                 <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-1">
+                  {passeio.totalAvaliacoes > 0 ? <div class="flex items-center gap-1">
                     <StarRating rating={passeio.avaliacao} />
                     <span class="text-sm text-dark-500 dark:text-dark-400 ml-1 font-medium">({passeio.totalAvaliacoes})</span>
-                  </div>
+                  </div> : <span class="text-sm text-dark-500 dark:text-dark-400">Novo transfer</span>}
                   <span class="text-sm font-medium text-dark-500 dark:text-dark-400 whitespace-nowrap">
                     ⏱ {passeio.duracao}
                   </span>
